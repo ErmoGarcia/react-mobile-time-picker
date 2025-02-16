@@ -30,3 +30,18 @@ You can use onChange to get new values
 
 You can customize the how component looks using the `mobile-time-picker` and `time-option classes`. For example:
 
+```showcase
+<MobileTimePicker></MobileTimePicker>
+<style>
+.mobile-time-picker {
+  border-radius: 5px;
+  background-color: hsl(174 36 64 / .7);
+}
+
+.time-option:has(input[checked]) {
+  background-color: hsl(174 36 64);
+}
+</style>
+```
+
+![Example styled](react-mobile-time-picker_styled.png "Example styled")
