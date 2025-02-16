@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reactToWebComponent from "react-to-webcomponent";
-import { DateTime } from 'luxon';
 
 interface Props {
-  selectedTime?: string,
-  onSelectedTime?: (string) => void
+  onChange?: (string) => void
 }
 
-export default function MobileTimePicker({selectedTime, onSelectedTime}: Props) {
+export default function MobileTimePicker({onChange}: Props) {
     const optionHeight = '40px'
 
     const timeOptions = Array.from({ length: 24 }, (_, i) => i / 2).map(i => {
@@ -17,7 +15,7 @@ export default function MobileTimePicker({selectedTime, onSelectedTime}: Props) 
       return `${hour > 10 ? hour : '0' + hour} : ${minutes > 10 ? minutes : '0' + minutes}`
     });
 
-    const [fixedTime, setFixedTime] = React.useState(selectedTime);
+    const [fixedTime, setFixedTime] = React.useState("00:00");
 
     const containerRef = React.useRef<HTMLDivElement>(null);
     const childrenRefs = Array.from({ length: 24 }, () => React.useRef<HTMLLabelElement>(null));
@@ -45,7 +43,7 @@ export default function MobileTimePicker({selectedTime, onSelectedTime}: Props) 
     }, [containerRef, childrenRefs]);
 
     React.useEffect(() => {
-        if (onSelectedTime && selectedTime !== fixedTime) onSelectedTime(fixedTime);
+        if (onChange) onChange(fixedTime);
     }, [fixedTime]);
 
     const styles = `.mobile-time-picker {
