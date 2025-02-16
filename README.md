@@ -1,20 +1,32 @@
-# React Starter Kit
+# React Mobile Time Picker
 
-### Starter kit result
+A mobile style time picker for your React app.
+
+## Install
 
 ```showcase
-  <my-counter></my-counter>
+npm install react-mobile-time-picker
 ```
 
-### Links
+## Usage
 
-- [Official website (reactjs.com)](https://reactjs.org)
-- [Getting Started](https://reactjs.org/docs/getting-started.html)
-- [Tutorial](https://reactjs.org/tutorial/tutorial.html)
-- [Docs](https://reactjs.org/docs/react-api.html)
-- [GitHub](https://github.com/facebook/react)
-- [Issues](https://github.com/facebook/react/issues)
+```showcase
+  import MobileTimePicker from 'react-mobile-time-picker'
 
-### Notes
+  <MobileTimePicker />
+```
 
-- The React component gets wrapped into a web component (custom-element) using [react-to-webcomponent](https://github.com/bitovi/react-to-webcomponent)
+![Example](react-mobile-time-picker.gif "Example")
+
+You can use onChange to get new values
+
+```showcase
+  const [selectedTime, setSelectedTime] = useState()
+
+  <MobileTimePicker onChange={setSelectedTime} />
+```
+
+## Custom styles
+
+You can customize the how component looks using the `mobile-time-picker` and `time-option classes`. For example:
+
